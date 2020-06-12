@@ -1,0 +1,20 @@
+{
+
+  "manifest_version": 2,
+  "name": "Domainario",
+  "version": "1.0",
+
+  "description": "Simple Extension for replacing the ends of domains with a simple shortcut with exceptions. ",
+
+  "icons": {
+    "48": "assets/Domainario.png",
+    "96": "assets/Domainario@X2.png"
+  },
+
+  "content_scripts": [
+    {
+      "js": ["domainario.js"]
+    }
+  ]
+
+}
