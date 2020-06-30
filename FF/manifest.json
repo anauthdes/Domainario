@@ -12,12 +12,13 @@
 
   "content_scripts": [
     {
-       "matches": ["*://*.mozilla.org/*"],
+       // "matches": ["*://*.mozilla.org/*"],
+       "matches": ["<all_urls>"],
       "js": ["domainario.js"]
     }
   ],
-  "permisions":[
-    "Storage"
+  "permissions":[
+    "storage"
   ],
   "options_ui": {
     "page": "options.html",

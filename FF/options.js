@@ -10,3 +10,9 @@ function setPrimary(e){
 		);
 	alert("Path Saved : ",pathString);
 }
+
+
+var pathList = document.getElementById("cPath");
+var text = storage.local.get("primaryPath");
+
+pathList.texContent = text;
