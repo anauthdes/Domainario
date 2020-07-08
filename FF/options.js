@@ -5,9 +5,8 @@ function setPrimary(e){
 	e.preventDefault();
 	var pathString = document.getElementById("primary_path").value;	
 
-	storage.local.set(
-			primaryPath : pathString.toString(),
-		);
+	storage.local.set(primaryPath : pathString.toString());
+	console.log(pathString.toString());
 	alert("Path Saved : ",pathString);
 }
 
