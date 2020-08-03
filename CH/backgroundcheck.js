@@ -1,6 +1,6 @@
 chrome.browserAction.onClicked.addListener(function(tab) {
 
-    
+
     //sets default options
     const IDENTIFYERS = ['\\', '\/'];
     var defaultPath = "/login";
@@ -24,7 +24,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         window.open(generateNewURL());
     });
 
-    
+
 
 
 
@@ -43,7 +43,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
     }
 
     function generateNewURL() {
-        if (exceptionCollection.length > 1) {
+        if (exceptionCollection.length > 0) {
             //look for exceptions first otherwise skip right to default
             for (var iii = 0; iii < exceptionCollection.length; iii++) {
                 // First check if the url matches the exception 
@@ -80,21 +80,20 @@ chrome.browserAction.onClicked.addListener(function(tab) {
                 }
             }
 
-        } else {
-            if (defaultAppend && defaultCase) {
-                return (cURL + defaultPath);
-            } else if (defaultAppend && !defaultCase) {
-                return (cURL + defaultPath.toLowerCase());
-            } else if (!defaultAppend && defaultCase) {
-                return (getDomain(cURL)[0] + defaultPath);
-            } else {
-                return (getDomain(cURL)[0] + defaultPath.toLowerCase());
-            }
         }
-
+        //default runs if nothing has been returned
+        if (defaultAppend && defaultCase) {
+            return (cURL + defaultPath);
+        } else if (defaultAppend && !defaultCase) {
+            return (cURL + defaultPath.toLowerCase());
+        } else if (!defaultAppend && defaultCase) {
+            return (getDomain(cURL)[0] + defaultPath);
+        } else {
+            return (getDomain(cURL)[0] + defaultPath.toLowerCase());
+        }
+        //fail-safe
         return cURL;
     }
-
 
 
 });
