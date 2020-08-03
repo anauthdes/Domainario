@@ -1,5 +1,4 @@
 {
-
   "manifest_version": 2,
   "name": "Domainario",
   "version": "1.0",
@@ -13,8 +12,17 @@
 
   "content_scripts": [
     {
+       // "matches": ["*://*.mozilla.org/*"],
+       "matches": ["<all_urls>"],
       "js": ["domainario.js"]
     }
-  ]
+  ],
+  "permissions":[
+    "storage"
+  ],
+  "options_ui": {
+    "page": "options.html",
+    "browser_style": true
+  }
 
 }

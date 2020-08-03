@@ -1,0 +1,83 @@
+/*options.css*/
+label {}
+
+div#default-holder, div#exception-holder {
+    width: 80vw;
+    margin: auto;
+    padding: 2rem;
+    border: solid #000 2px;
+    border-radius: 1rem;
+}
+
+div#default-holder label, div#default-holder input {
+    display: block;
+}
+
+div#exception-holder #exception-headers label {
+    width: 17%;
+    display: flex;
+    border: solid #000 1px;
+    display: inline-flex;
+    justify-content: center;
+    padding: 1rem;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+div#exception-holder #exception-headers label .help-note {
+    display: none;
+}
+
+div#exception-holder #exception-headers label:hover .help-note {
+    display: block;
+    position: absolute;
+    top: 50px;
+    width: 60vw;
+    left: 20vw;
+    background: greenyellow;
+    padding: 2rem;
+    border: solid;
+    border-radius: 1rem;
+    font-size: 1.5rem;
+}
+
+div#exception-builds input {
+    width: 17%;
+    display: flex;
+    border: solid #000 1px;
+    display: inline-flex;
+    justify-content: center;
+    padding: 1rem;
+    align-items: stretch;
+    align-content: stretch;
+}
+
+.delete-exception {
+    color: red;
+    right: 10vw;
+    padding: 1rem 0;
+    border: solid #f00 1px;
+    width: 5rem;
+    text-align: center;
+    /* top: 1px; */
+}
+
+div#add-exception {
+    width: 80vw;
+    margin: auto;
+    padding: 2rem;
+    border: solid #000 2px;
+    border-radius: 1rem;
+    text-align: center;
+    background: antiquewhite;
+}
+
+div#save {
+    width: 80vw;
+    margin: auto;
+    padding: 2rem;
+    border: solid #000 2px;
+    border-radius: 1rem;
+    text-align: center;
+    background: aquamarine;
+}

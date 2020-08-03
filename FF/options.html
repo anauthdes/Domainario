@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta content="text/html;charset=utf-8" http-equiv="Content-Type">
+    <meta content="utf-8" http-equiv="encoding">
+    <meta http-equiv="Content-Security-Policy" content="default-src *; style-src 'self' 'unsafe-inline'; script-src 'self' 'unsafe-inline' 'unsafe-eval' moz-extension">
+    <title>Options</title>
+</head>
+
+<body>
+    <form>
+        <label>Update Path</label>
+        <input type="text" id="primary_path" />
+        <button id="submit" type="submit" onclick="setPrimary()">Save</button>
+    </form>
+    <p>Current Path: <span class="cPath"></span></p>
+    <script>
+    //options JS
+    document.getElementById("submit").addEventListener("click", setPrimary(e));
+
+    function setPrimary(e) {
+        e.preventDefault();
+        var pathString = document.getElementById("primary_path").value;
+
+        storage.local.set(primaryPath: pathString.toString());
+        console.log(pathString.toString());
+        alert("Path Saved : ", pathString);
+    }
+
+
+    var pathList = document.getElementById("cPath");
+    var text = storage.local.get("primaryPath");
+
+    pathList.texContent = text;
+    </script>
+</body>
+
+</html>
