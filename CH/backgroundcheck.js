@@ -42,6 +42,20 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         return newURL;
     }
 
+    function cleanResult(ori, res, trimChar, insertifNo) {
+        if (ori.length > 0 && res.length > 0) {
+
+            for (var iii = 0; iii < trimChar.length; iii++) {
+                if (res.charAt(0) == trimChar[iii] && ori.charAt(ori.length - 1) == trimChar[iii]) {
+                    return (ori + res.slice(1));
+                } else if (!res.charAt(0) == trimChar[iii] && !ori.charAt(ori.length - 1) == trimChar[iii] && insertifNo) {
+                    return (ori + trimChar[iii] + res);
+                }
+            }
+        }
+        return (ori + res);
+    }
+
     function generateNewURL() {
         if (exceptionCollection.length > 0) {
             //look for exceptions first otherwise skip right to default
@@ -68,7 +82,11 @@ chrome.browserAction.onClicked.addListener(function(tab) {
                     }
                     //if you are not appending and not swapping out text modify URL to be host and result
                     if (!exceptionCollection[iii].append && !exceptionCollection[iii].exact) {
-                        nURL = (getDomain(nURL)[0] + res);
+                        if (res.charAt(0) == "\/" || res.charAt(0) == "\\") {
+                            nURL = cleanResult(getDomain(nURL)[0], res, ["\/", "\\"], true);
+                        } else {
+                            nURL = (getDomain(nURL)[0] + res);
+                        }
                         //if you are not appending but swapping out text leave URL as is
                     } else if (!exceptionCollection[iii].append && exceptionCollection[iii].exact) {
                         nURL = nURL;
@@ -83,13 +101,30 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         }
         //default runs if nothing has been returned
         if (defaultAppend && defaultCase) {
-            return (cURL + defaultPath);
+            if (defaultPath.charAt(0) == "\/" || defaultPath.charAt(0) == "\\") {
+                return cleanResult(cURL, defaultPath, ["\/", "\\"], true);
+            } else {
+                return (cURL + defaultPath);
+            }
         } else if (defaultAppend && !defaultCase) {
-            return (cURL + defaultPath.toLowerCase());
+             if (defaultPath.charAt(0) == "\/" || defaultPath.charAt(0) == "\\") {
+                return cleanResult(cURL, defaultPath.toLowerCase(), ["\/", "\\"], true);
+            } else {
+                return (cURL + defaultPath.toLowerCase());
+            }
         } else if (!defaultAppend && defaultCase) {
-            return (getDomain(cURL)[0] + defaultPath);
+            if (defaultPath.charAt(0) == "\/" || defaultPath.charAt(0) == "\\") {
+                return cleanResult(getDomain(cURL)[0], defaultPath, ["\/", "\\"], true);
+            } else {
+                return (getDomain(cURL)[0] + defaultPath);
+            }
+
         } else {
-            return (getDomain(cURL)[0] + defaultPath.toLowerCase());
+            if (defaultPath.charAt(0) == "\/" || defaultPath.charAt(0) == "\\") {
+                return cleanResult(getDomain(cURL)[0], defaultPath.toLowerCase(), ["\/", "\\"], true);
+            } else {
+                return (getDomain(cURL)[0] + defaultPath.toLowerCase());
+            }
         }
         //fail-safe
         return cURL;

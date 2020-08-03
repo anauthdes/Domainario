@@ -54,7 +54,7 @@ function addNewException(container) {
 }
 
 function deleteException(item) {
-    item.target.parentElement.remove();
+    item.target.parentNode.remove();
 }
 
 function save_options() {
@@ -65,6 +65,7 @@ function save_options() {
     chrome.storage.sync.set({
         defaultPath: defaultPath,
         defaultCase: defaultCase,
+        defaultAppend:defaultAppend,
         exceptionCollection: exceptionCollection
     }, function() {
         // Update status to let user know options were saved.
@@ -83,6 +84,7 @@ function restore_options() {
     chrome.storage.sync.get({
         defaultPath: "/login",
         defaultCase: false,
+        defaultAppend:false,
         exceptionCollection: []
     }, function(items) {
         document.getElementById('default-replace').value = items.defaultPath;

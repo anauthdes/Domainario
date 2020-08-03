@@ -1,25 +1,35 @@
 /*options.css*/
-label {}
+body {
+    background-image: linear-gradient(165deg, #2e2e2e,#3e3e3e,#4e4e4e, #fefefe);
+    height: 100vh;
+    font-family: serif;
+    font-size: 16px;
+}
 
-div#default-holder, div#exception-holder {
+div#default-holder,
+div#exception-holder {
     width: 80vw;
     margin: auto;
     padding: 2rem;
     border: solid #000 2px;
-    border-radius: 1rem;
+    border-image: url(back-box-left.png) 21% stretch;
+    border-radius: 0;
+    background: rgba(200,200,200,0.5);
+    margin-bottom: 1rem;
 }
 
-div#default-holder label, div#default-holder input {
+div#default-holder label,
+div#default-holder input {
     display: block;
 }
 
 div#exception-holder #exception-headers label {
-    width: 17%;
+    width: 18%;
     display: flex;
     border: solid #000 1px;
     display: inline-flex;
     justify-content: center;
-    padding: 1rem;
+    padding: 0.5rem;
     align-items: stretch;
     align-content: stretch;
 }
@@ -79,5 +89,15 @@ div#save {
     border: solid #000 2px;
     border-radius: 1rem;
     text-align: center;
-    background: aquamarine;
+    background: rgba(100, 250, 15, 0.5);
+}
+
+div#status {
+    position: absolute;
+    top: 20vh;
+    left: 35vw;
+   
+    background: #539e29;
+    border-radius: 1rem;
+    font-size: 5rem;
 }

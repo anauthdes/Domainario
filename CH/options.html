@@ -5,7 +5,10 @@
 	<link rel="stylesheet" type="text/css" href="options.css">
 </head>
 <body>
+
 	<div id="default-holder">
+		<div><h1>Domainario Options</h1></div>
+		<h2>Default Options</h2>
 		<label for="default">Default Replace path<span class="help-note">Use "/" (without quotes) to have no default path and reduce to host only</span></label>
 		<input type="text" name="default" id="default-replace" placeholder="/login">
 		<label for="default-case">Default replace path is case sensative<span class="help-note">(If checked the exception path will search use exact casing as entered)</span></label>
@@ -14,6 +17,7 @@
 		<input type="checkbox" name="default-append" id="default-append">
 	</div>
 	<div id="exception-holder">
+		<h2>URL Exception</h2>
 		<div id="exception-headers">
 			<label for="exception-path">Expection <span class="help-note">If the url contains this change the replacement path</span></label>
 			<label for="exception-result">Result <span class="help-note">modify the url to contain this instead</span></label>
@@ -22,7 +26,7 @@
 			<label for="exception-append">Append<span class="help-note">(If checked the URL will remain the same but with your result added at the end [eg:www.eg.com/sx.dev.env/sx.prod.env])</span></label>
 		</div>
 		<div id="exception-builds">	
-			<div class="segment">
+			<!-- <div class="segment">
 				<input type="text" name="exception-path" class="exception-path-contains"  placeholder="/sx.dev.env">
 				
 				<input type="text" name="exception-result" class="exception-path-result" placeholder="/sx.prod.env">
@@ -33,7 +37,7 @@
 
 				<input type="checkbox" name="exception-append" class="exception-append">
 				<div class="delete-exception">DELETE</div>
-			</div>
+			</div> -->
 		</div>
 	</div>
 	<div id="add-exception">NEW EXCEPTION</div>
