@@ -20,10 +20,11 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         defaultCase = items.defaultCase;
         defaultAppend = items.defaultAppend;
         exceptionCollection = items.exceptionCollection;
+        console.log(defaultPath, defaultCase, defaultAppend, exceptionCollection, cURL, nURL);
+        window.open(generateNewURL());
     });
 
-    console.log(defaultPath, defaultCase, defaultAppend, exceptionCollection, cURL, nURL);
-    window.open(generateNewURL());
+    
 
 
 
