@@ -1,6 +1,6 @@
 //Options script
 
-function getExceptionsArray(exceptions,results,exacts,cases){
+function getExceptionsArray(exceptions,results,exacts,cases,appends){
 	var compiledItems = [];
 	for(var iii=0;iii < exceptions.length; iii++){
 		compiledItems[iii] = {
@@ -8,6 +8,7 @@ function getExceptionsArray(exceptions,results,exacts,cases){
 			result:results[iii].value,
 			exact: exacts[iii].checked,
 			case: cases[iii].checked,
+			append:appends[iii].checked
 		};
 	}
 	return compiledItems;
@@ -23,6 +24,7 @@ function generateExceptionElements(exceptionCollection,container){
 									'<input type="text" name="exception-result" class="exception-path-result" placeholder="/sx.prod.env" value="' + exceptionCollection[iii].result + '">' + 
 									'<input type="checkbox" name="exception-exact" class="exception-exact" checked="' + exceptionCollection[iii].exact + '">'+
 									'<input type="checkbox" name="exception-case" class="exception-case" checked="' + exceptionCollection[iii].case + '">' +
+									'<input type="checkbox" name="exception-append" class="exception-append"' + exceptionCollection[iii].append + '">'+
 									'<div class="delete-exception">DELETE</div>' +
 								'</div>';
 		}
@@ -38,9 +40,11 @@ function addNewException(container){
 									'<input type="text" name="exception-result" class="exception-path-result" placeholder="/sx.prod.env"> ' + 
 									'<input type="checkbox" name="exception-exact" class="exception-exact" >'+
 									'<input type="checkbox" name="exception-case" class="exception-case" >' +
+									'<input type="checkbox" name="exception-append" class="exception-append">' +
 									'<div class="delete-exception">DELETE</div>' +
 								'</div>';
 	document.getElementById(container).appendChild(newElement);
+	document.getElementsByClassName('delete-exception')[document.getElementsByClassName('delete-exception').length -1].addEventListener('click',function(e){deleteException(e)});
 }
 function deleteException(item){
 	item.target.parentElement.remove();
@@ -49,7 +53,8 @@ function deleteException(item){
 function save_options() {
   var defaultPath = document.getElementById('default-replace').value;
   var defaultCase = document.getElementById('default-case').checked;
-  var exceptionCollection = getExceptionsArray(document.getElementsByClassName("exception-path-contains"),document.getElementsByClassName("exception-path-result"),document.getElementsByClassName("exception-exact"),document.getElementsByClassName("exception-case"));
+  var defaultAppend = document.getElementById('default-append').checked;
+  var exceptionCollection = getExceptionsArray(document.getElementsByClassName("exception-path-contains"),document.getElementsByClassName("exception-path-result"),document.getElementsByClassName("exception-exact"),document.getElementsByClassName("exception-case"),document.getElementsByClassName("exception-append"));
   chrome.storage.sync.set({
     defaultPath: defaultPath,
     defaultCase: defaultCase,
@@ -75,10 +80,15 @@ function restore_options() {
   }, function(items) {
   	document.getElementById('default-replace').value = items.defaultPath;
   	document.getElementById('default-case').checked = items.defaultCase;
+  	document.getElementById('default-append').checked = items.defaultAppend;
     generateExceptionElements(items.exceptionCollection,"exception-builds");
   });
 }
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click',save_options);
 document.getElementById('add-exception').addEventListener('click',function(){addNewException("exception-builds")});
-document.getElementsByClassName('delete-exception').addEventListener('click',deleteException);
+var del = document.getElementsByClassName('delete-exception')
+for (var iii = 0; iii < del.length; iii++) {
+	del[iii].addEventListener('click',function(e){deleteException(e)});
+}
+

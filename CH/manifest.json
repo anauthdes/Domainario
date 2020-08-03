@@ -9,7 +9,7 @@
     "open_in_tab": false
   },
   "browser_action": {
-    "default_icon": "icon.png"
+    "default_icon": "Domainario.png"
   },
   "permissions": [
     "tabs",
@@ -17,7 +17,7 @@
     "storage"
   ],
   "web_accessible_resources": [
-    "icon.png"
+    "Domainario.png"
   ],
   "background":{
     "scripts": ["backgroundcheck.js"]
