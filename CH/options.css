@@ -2,7 +2,7 @@
 body {
     /* background-image: linear-gradient(165deg, #2e2e2e,#3e3e3e,#4e4e4e, #fefefe); */
     height: 100vh;
-    font-family: serif;
+    font-family: "Lucida Console";
     font-size: 16px;
     background-color: #1e1e1e;
     color: #fff;
@@ -32,7 +32,7 @@ div#default-holder input {
 }
 
 div#exception-holder #exception-headers label {
-    width: 13%;
+    width: 12%;
     margin: 0 1%;
     display: flex;
     /* border: solid #000 1px; */
