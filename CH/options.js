@@ -3,6 +3,7 @@
 function getExceptionsArray(exceptions, results, exacts, cases, appends) {
     var compiledItems = [];
     for (var iii = 0; iii < exceptions.length; iii++) {
+        
         compiledItems[iii] = {
             exception: exceptions[iii].value,
             result: results[iii].value,
@@ -20,13 +21,14 @@ function generateExceptionElements(exceptionCollection, container) {
         var exceptionsString = "";
         document.getElementById('exception-builds').innerHTML = "";
         for (var iii = 0; iii < exceptionCollection.length; iii++) {
+            console.log(exceptionCollection[iii]);
             exceptionsString += '<div class="segment">' +
-                '<input type="text" name="exception-path" class="exception-path-contains"  placeholder="/sx.dev.env" value="' + exceptionCollection[iii].exception + '">' +
-                '<input type="text" name="exception-result" class="exception-path-result" placeholder="/sx.prod.env" value="' + exceptionCollection[iii].result + '">' +
-                '<input type="checkbox" name="exception-exact" class="exception-exact" checked="' + exceptionCollection[iii].exact + '">' +
-                '<input type="checkbox" name="exception-case" class="exception-case" checked="' + exceptionCollection[iii].case+'">' +
-                '<input type="checkbox" name="exception-append" class="exception-append"' + exceptionCollection[iii].append + '">' +
-                '<div class="delete-exception">DELETE</div>' +
+                '<div class="segment-item"><input type="text" name="exception-path" class="exception-path-contains"  placeholder="/sx.dev.env" value="' + exceptionCollection[iii].exception + '"></div>' +
+                '<div class="segment-item"><input type="text" name="exception-result" class="exception-path-result" placeholder="/sx.prod.env" value="' + exceptionCollection[iii].result + '"></div>' +
+                '<div class="segment-item"><input type="checkbox" name="exception-exact" class="exception-exact" ' + (exceptionCollection[iii].exact ? "checked='true'":"") + '></div>' +
+                '<div class="segment-item"><input type="checkbox" name="exception-case" class="exception-case"' + (exceptionCollection[iii].case ? "checked='true'":"") +'></div>' +
+                '<div class="segment-item"><input type="checkbox" name="exception-append" class="exception-append" ' + (exceptionCollection[iii].append ? "checked='true'":"") + '></div>' +
+                '<div class="segment-item"><div class="delete-exception"></div></div>' +
                 '</div>';
         }
         document.getElementById(container).innerHTML = exceptionsString;
@@ -42,25 +44,26 @@ function addNewException(container) {
     var newElement = document.createElement("DIV");
     newElement.classList.add("segment");
     newElement.innerHTML = '<div class="segment">' +
-        '<input type="text" name="exception-path" class="exception-path-contains"  placeholder="/sx.dev.env" >' +
-        '<input type="text" name="exception-result" class="exception-path-result" placeholder="/sx.prod.env"> ' +
-        '<input type="checkbox" name="exception-exact" class="exception-exact" >' +
-        '<input type="checkbox" name="exception-case" class="exception-case" >' +
-        '<input type="checkbox" name="exception-append" class="exception-append">' +
-        '<div class="delete-exception">DELETE</div>' +
+        '<div class="segment-item"><input type="text" name="exception-path" class="exception-path-contains"  placeholder="/sx.dev.env" ></div>' +
+        '<div class="segment-item"><input type="text" name="exception-result" class="exception-path-result" placeholder="/sx.prod.env"></div> ' +
+        '<div class="segment-item"><input type="checkbox" name="exception-exact" class="exception-exact" ></div>' +
+        '<div class="segment-item"><input type="checkbox" name="exception-case" class="exception-case" ></div>' +
+        '<div class="segment-item"><input type="checkbox" name="exception-append" class="exception-append"></div>' +
+        '<div class="segment-item"><div class="delete-exception"></div></div>' +
         '</div>';
     document.getElementById(container).appendChild(newElement);
     document.getElementsByClassName('delete-exception')[document.getElementsByClassName('delete-exception').length - 1].addEventListener('click', function(e) { deleteException(e) });
 }
 
 function deleteException(item) {
-    item.target.parentNode.remove();
+    item.target.parentNode.parentNode.remove();
 }
 
 function save_options() {
     var defaultPath = document.getElementById('default-replace').value;
     var defaultCase = document.getElementById('default-case').checked;
     var defaultAppend = document.getElementById('default-append').checked;
+
     var exceptionCollection = getExceptionsArray(document.getElementsByClassName("exception-path-contains"), document.getElementsByClassName("exception-path-result"), document.getElementsByClassName("exception-exact"), document.getElementsByClassName("exception-case"), document.getElementsByClassName("exception-append"));
     chrome.storage.sync.set({
         defaultPath: defaultPath,
@@ -93,6 +96,7 @@ function restore_options() {
         generateExceptionElements(items.exceptionCollection, "exception-builds");
     });
 }
+
 document.addEventListener('DOMContentLoaded', restore_options);
 document.getElementById('save').addEventListener('click', save_options);
 document.getElementById('add-exception').addEventListener('click', function() { addNewException("exception-builds") });
