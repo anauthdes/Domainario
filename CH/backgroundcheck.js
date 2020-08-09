@@ -20,7 +20,11 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         defaultAppend = items.defaultAppend;
         exceptionCollection = items.exceptionCollection;
         console.log(defaultPath, defaultCase, defaultAppend, exceptionCollection, cURL, nURL);
-        window.open(generateNewURL());
+        try{
+            window.open(generateNewURL());
+        }catch(e){
+            console.log("Error on: ", e);
+        }
     });
 
     //Returns the host domain
