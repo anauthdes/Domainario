@@ -1,6 +1,6 @@
 /*options.css*/
 body {
-    /* background-image: linear-gradient(165deg, #2e2e2e,#3e3e3e,#4e4e4e, #fefefe); */
+
     height: 100vh;
     font-family: "Lucida Console";
     font-size: 16px;
@@ -15,13 +15,8 @@ div#exception-holder {
     width: 80vw;
     margin: auto;
     padding: 0 2rem 2rem;
-    /* border: solid #ded1d1 2px; */
-    /* border-image: url(back-box-left.png) 21% stretch; */
     border-radius: 0;
-    /* background: rgba(200,200,200,0.5); */
     margin-bottom: 1rem;
-    /* border-top: solid #fff 2px; */
-    /* border-left: solid #fff 2px; */
     text-align: center;
 }
 
@@ -35,7 +30,6 @@ div#exception-holder #exception-headers label {
     width: 12%;
     margin: 0 1%;
     display: flex;
-    /* border: solid #000 1px; */
     display: inline-flex;
     justify-content: center;
     padding: 0.5rem;
@@ -43,11 +37,11 @@ div#exception-holder #exception-headers label {
     align-content: stretch;
 }
 
- label .help-note {
+label .help-note {
     display: none;
 }
 
- label:hover .help-note {
+label:hover .help-note {
     display: block;
     position: absolute;
     top: 50px;
@@ -56,17 +50,13 @@ div#exception-holder #exception-headers label {
     background: #5f5f5f;
     padding: 2rem;
     border: solid;
-    
     font-size: 1.5rem;
 }
 
 #exception-builds .segment-item {
     width: 16.5%;
-    /* display: flex; */
-    /* border: solid #000 1px; */
     display: inline-flex;
     justify-content: center;
-    /* padding: 1rem; */
     align-items: stretch;
     align-content: stretch;
 }
@@ -79,9 +69,8 @@ div#exception-holder #exception-headers label {
     width: 1rem;
     height: 1rem;
     text-align: center;
-    /* background: #f00; */
     border-radius: 9rem;
-    /* top: 1px; */
+
 }
 
 div#add-exception {
@@ -89,9 +78,7 @@ div#add-exception {
     margin: auto;
     padding: 2rem;
     border: solid #fff 2px;
-    /* border-radius: 1rem; */
     text-align: center;
-    /* background: antiquewhite; */
     display: inline-block;
 }
 
@@ -100,9 +87,7 @@ div#save {
     margin: auto;
     padding: 2rem;
     border: solid #fff 2px;
-    /* border-radius: 1rem; */
     text-align: center;
-    /* background: rgba(100, 250, 15, 0.5); */
     display: inline-block;
 }
 
@@ -110,25 +95,25 @@ div#status {
     position: absolute;
     top: 20vh;
     left: 35vw;
-   
     background: #539e29;
     border-radius: 1rem;
     font-size: 5rem;
 }
+
 div#status-error {
     position: absolute;
     top: 20vh;
     left: 10vw;
-   
     background: #d00b0b;
     border-radius: 1rem;
     font-size: 5rem;
 }
+
 .delete-exception:after {
-    content:"X";
-    /* border: solid #fff 2px; */
+    content: "X";
     padding FONT-WEIGHT: 100;
 }
+
 .segment {
     margin-bottom: 1rem;
 }
@@ -138,29 +123,23 @@ div#status-error {
     display: inline-block;
     vertical-align: bottom;
     text-align: center;
-    /* border-right: solid #fff 1px; */
-    /* border-left: solid #fff 1px; */
+
     border-bottom: solid #fff 1px;
     padding: 1rem;
 }
 
 div#exception-builds {
     border: solid #fff 1px;
-    /* box-shadow: #ececec 1px 1px; */
     padding: 1rem 0;
     border-left: none;
     border-right: none;
 }
 
-#exception-builds .segment:nth-of-type(even) {
-    /* background: #010101; */
-}
-
 div#add-exception:after {
     content: "+";
-    margin-left:1rem;
-    font-size:1rem;
-    font-weight:bold;
+    margin-left: 1rem;
+    font-size: 1rem;
+    font-weight: bold;
     border: solid #fff 1px;
     padding: 0px;
     border-radius: 2rem;
@@ -170,20 +149,21 @@ div#add-exception:after {
 }
 
 div#save:after {
-    content:"S";
-    margin-left:1rem;
+    content: "S";
+    margin-left: 1rem;
     border: solid #fff 1px;
     padding: 1px;
     position: absolute;
     width: 1rem;
     height: 1rem;
     border-radius: 2rem;
-    /* margin-top: -0.5rem; */
+
 }
 
 div.bottom-buttons {
     text-align: center;
 }
+
 div#default-holder label {
     padding: 1rem;
 }
@@ -200,78 +180,93 @@ input[type="text"] {
     padding: 1px 2px;
     border: none;
 }
-input.error{
+
+input.error {
     background: #d00b0b;
     color: #fff;
 }
+
 #exception-builds {
     max-height: 8rem;
     overflow: scroll;
     overflow-x: hidden;
 }
 
-#exception-builds::-webkit-scrollbar,#default-holder::-webkit-scrollbar {
-  width: 1em;
+#exception-builds::-webkit-scrollbar,
+#default-holder::-webkit-scrollbar {
+    width: 1em;
 }
-#exception-builds::-webkit-scrollbar-track,#default-holder::-webkit-scrollbar-track {
-  box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
+
+#exception-builds::-webkit-scrollbar-track,
+#default-holder::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.3);
 }
-#exception-builds::-webkit-scrollbar-thumb,#default-holder::-webkit-scrollbar-thumb {
-  background-color: #fff;
-  outline: 1px solid slategrey;
+
+#exception-builds::-webkit-scrollbar-thumb,
+#default-holder::-webkit-scrollbar-thumb {
+    background-color: #fff;
+    outline: 1px solid slategrey;
 }
 
 
 @media only screen and (max-width: 1270px) {
-div#add-exception,div#save{
-    font-size: 0.5em
-}
-div#add-exception:after {
-    display:none;
-    
-}
-div#save:after {
-      display:none;
-    
-}
+
+    div#add-exception,
+    div#save {
+        font-size: 0.5em
+    }
+
+    div#add-exception:after {
+        display: none;
+
+    }
+
+    div#save:after {
+        display: none;
+
+    }
 }
 
 @media only screen and (max-width: 900px) {
 
 
-#default-holder .segment-item{
-width:100%
-}
+    #default-holder .segment-item {
+        width: 100%
+    }
 
-#default-holder{
-     max-height: 8rem;
-    overflow: scroll;
-    overflow-x: hidden;
-}
+    #default-holder {
+        max-height: 8rem;
+        overflow: scroll;
+        overflow-x: hidden;
+    }
 
-label:hover .help-note {
-    display: block;
-    position: absolute;
-    bottom: 0;
-    left:0;
-    right:0;
-    top:60vh;
-    width: 90vw;
-    background: #5f5f5f;
-    padding: 2rem;
-    border: solid;
-    font-size: 1.5rem;
-    z-index:999;
-}
-div#add-exception,div#save{
-    font-size: 0.5em
-}
-div#add-exception:after {
-    display:none;
-    
-}
-div#save:after {
-      display:none;
-    
-}
+    label:hover .help-note {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        top: 60vh;
+        width: 90vw;
+        background: #5f5f5f;
+        padding: 2rem;
+        border: solid;
+        font-size: 1.5rem;
+        z-index: 999;
+    }
+
+    div#add-exception,
+    div#save {
+        font-size: 0.5em
+    }
+
+    div#add-exception:after {
+        display: none;
+
+    }
+
+    div#save:after {
+        display: none;
+
+    }
 }

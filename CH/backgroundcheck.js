@@ -1,6 +1,5 @@
 chrome.browserAction.onClicked.addListener(function(tab) {
 
-
     //sets default options
     const IDENTIFYERS = ['\\', '\/'];
     var defaultPath = "/login";
@@ -24,11 +23,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         window.open(generateNewURL());
     });
 
-
-
-
-
-
+    //Returns the host domain
     function getDomain(currentURL) {
         var newURL = "";
         if (currentURL.charAt(currentURL.length - 1) == '\/' || currentURL.charAt(currentURL.length - 1) == '\\') {
@@ -42,6 +37,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         return newURL;
     }
 
+    //cleans and appends results
     function cleanResult(ori, res, trimChar, insertifNo) {
         if (ori.length > 0 && res.length > 0) {
 
@@ -56,6 +52,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         return (ori + res);
     }
 
+    //generates resulting URL and returns as string based on saved conditions
     function generateNewURL() {
         if (exceptionCollection.length > 0) {
             //look for exceptions first otherwise skip right to default
@@ -129,6 +126,5 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         //fail-safe
         return cURL;
     }
-
 
 });

@@ -2,8 +2,8 @@
   "manifest_version": 2,
 
   "name": "Domainario",
-  "description": "Simple Extension for replacing the ends of domains with a simple shortcut with exceptions. ",
-  "version": "1.0",
+  "description": "Simple extension for quick and easy URL appends and replacements with a click of a button or a tap of a shortcut.",
+  "version": "1.0.0",
    "options_ui": {
     "page": "options.html",
     "open_in_tab": true
