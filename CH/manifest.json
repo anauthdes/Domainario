@@ -9,8 +9,11 @@
     "open_in_tab": true
   },
   "browser_action": {
-    "default_icon": "Domainario.png"
+    "default_icon": "domainario128.png"
   },
+  "icons": { "16": "domainario16.png",
+           "48": "domainario48.png",
+          "128": "domainario128.png" },
   "permissions": [
     "tabs",
     "activeTab",
