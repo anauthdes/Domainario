@@ -6,7 +6,6 @@ body {
     font-size: 16px;
     background-color: #1e1e1e;
     color: #fff;
-    
     padding-top: 1vw;
 }
 
@@ -213,21 +212,26 @@ input.error {
     background-color: #fff;
     outline: 1px solid slategrey;
 }
-body::-webkit-scrollbar{
+
+body::-webkit-scrollbar {
     width: 0.5em;
 }
-body::-webkit-scrollbar-track{
- box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);   
+
+body::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 }
-body::-webkit-scrollbar-thumb{
-    background-color: #rgba(255,255,255,0.1);
-    outline: 1px solid slategrey;   
+
+body::-webkit-scrollbar-thumb {
+    background-color: #rgba(255, 255, 255, 0.1);
+    outline: 1px solid slategrey;
 }
-.footer .logo{
+
+.footer .logo {
     width: 3rem;
     height: 3rem;
     vertical-align: middle;
 }
+
 @media only screen and (max-width: 1270px) {
 
     div#add-exception,
@@ -245,25 +249,28 @@ body::-webkit-scrollbar-thumb{
 
     }
 }
-.logo-holder{
+
+.logo-holder {
     text-align: center;
 }
 
-.footer{
+.footer {
     text-align: center;
     position: absolute;
-    bottom: 0; 
+    bottom: 0;
     left: 0;
-    right:0;
+    right: 0;
     padding: 1rem;
 }
-.footer a{
+
+.footer a {
     color: #fff;
     text-decoration: none;
 }
-.footer a:visited{
+
+.footer a:visited {
     color: #fff;
-    text-decoration: none;   
+    text-decoration: none;
 }
 
 @media only screen and (max-width: 900px) {
@@ -293,6 +300,7 @@ body::-webkit-scrollbar-thumb{
         font-size: 1.5rem;
         z-index: 999;
     }
+
     #exception-headers label:hover .help-note {
         bottom: 60vh;
         left: 0;
@@ -314,5 +322,11 @@ body::-webkit-scrollbar-thumb{
     div#save:after {
         display: none;
 
+    }
+}
+
+@media only screen and (max-height: 910px) {
+    .footer {
+        position: static;
     }
 }

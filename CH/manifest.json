@@ -20,7 +20,9 @@
     "storage"
   ],
   "web_accessible_resources": [
-    "Domainario.png"
+    "options.css",
+    "options.js",
+    "ScaledCap-Logo.svg"
   ],
   "background":{
     "scripts": ["backgroundcheck.js"]

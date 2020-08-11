@@ -1,13 +1,13 @@
 chrome.browserAction.onClicked.addListener(function(tab) {
 
     //sets default options
-    const IDENTIFYERS = ['\\', '\/'];
     var defaultPath = "/login";
     var defaultCase = false;
     var defaultAppend = false;
     var exceptionCollection = [];
     var cURL = tab.url;
     var nURL = "";
+
     //pulling the saved options for the user browser
     chrome.storage.sync.get({
         defaultPath: "/login",
@@ -100,6 +100,7 @@ chrome.browserAction.onClicked.addListener(function(tab) {
             }
 
         }
+
         //default runs if nothing has been returned
         if (defaultAppend && defaultCase) {
             if (defaultPath.charAt(0) == "\/" || defaultPath.charAt(0) == "\\") {
@@ -130,5 +131,4 @@ chrome.browserAction.onClicked.addListener(function(tab) {
         //fail-safe
         return cURL;
     }
-
 });
