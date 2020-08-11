@@ -6,7 +6,7 @@ Set your default update to allow you to append or replace some text to the end o
 
 Create exceptions to detect certain simple patterns in your url and excecute different appends or replacements useful for quick access to your web backend portals especially for those working with multiple clients or CMS's.
 
-Chrome Extension(CH) version 1.0.0 nearly complete
+Chrome Extension(CH) version 0.0.0.2 nearly complete
 -------------------
 Options available 
 
