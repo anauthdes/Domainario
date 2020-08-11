@@ -15,8 +15,7 @@
            "48": "domainario48.png",
           "128": "domainario128.png" },
   "permissions": [
-    "tabs",
-    "activeTab",
+     "activeTab",
     "storage"
   ],
   "web_accessible_resources": [
